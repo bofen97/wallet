@@ -99,6 +99,6 @@ func (ks HDKeyStore) SignTx(address common.Address, tx *types.Transaction, chain
 }
 
 //操作智能合约时进行签名
-func (ks HDKeyStore) NewTransactionOps() (*bind.TransactOpts, error) {
-	return bind.NewKeyedTransactorWithChainID(ks.Key.PrivateKey, ChainID)
+func (ks HDKeyStore) NewTransactionOps(chainid *big.Int) (*bind.TransactOpts, error) {
+	return bind.NewKeyedTransactorWithChainID(ks.Key.PrivateKey, chainid)
 }
